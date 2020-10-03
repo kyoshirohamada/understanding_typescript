@@ -16,6 +16,14 @@ function add(a: Combinable, b: Combinable) {
 const result = add('Johan', 'Rama');
 console.log(result.split(' '));
 
+const fetchedUserData = {
+    id: 'ul',
+    name: 'Max',
+    job: { title: 'CEO', description: 'My own company' }
+};
+
+console.log(fetchedUserData?.job?.title);
+
 // type Admin = {
 //     name: string;
 //     privileges: string[];
