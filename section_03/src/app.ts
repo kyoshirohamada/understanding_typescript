@@ -1,23 +1,19 @@
-function merge<T extends object, U extends object>(objA: T, objB: U) {
-    return Object.assign(objA, objB);
+function Logger(logString: string) {
+    return function(constructor: Function) {
+        console.log(logString);
+        console.log(constructor);
+    }    
 }
 
-const mergeObj = merge({name: 'Max', hobbies: ['Sports']}, {age: 30});
-console.log(mergeObj.name);
+@Logger('LOGGING - PERSON')
+class Person {
+    name = 'Johan';
 
-interface Lengthy {
-    length: number;
-}
-
-function countAndDescribe<T extends Lengthy>(element: T) {
-    let descriptionText = 'Got no value.';
-
-    if (element.length === 1) {
-        descriptionText = 'Got 1 element';
-    } else if (element.length > 1) {
-        descriptionText = 'Got ' + element.length + ' elements.';
+    constructor() {
+        console.log('Creating person object...');
     }
-    return [element, descriptionText];
 }
 
-console.log(countAndDescribe(['Sports', 'Cooking']));
+// const person = new Person();
+
+// console.log(person);
